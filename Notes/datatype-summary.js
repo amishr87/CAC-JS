@@ -21,3 +21,33 @@ let myObj = {
 const myFunction = function(){
     console.log("Hello World");
 }
+
+// *******************************************************
+
+// Stack Memory (Primitive Datatypes)
+
+let myName = "AnandKMishra"
+
+let anotherName = myName
+
+anotherName = "AKM"
+
+console.log(myName);
+console.log(anotherName);
+
+// Heap Memory (Reference Datatypes)
+
+
+let userOne = {
+    email: "amishr87@asu.edu",
+    upi: "user@paytm"
+}
+
+let userTwo = userOne
+
+userTwo.email = "akm@asu.edu";
+
+console.log(userOne.email);
+console.log(userTwo.email);
+
+//both have the email akm@asu.edu as userTwo uses reference of UserOne so the info is changed at the source
