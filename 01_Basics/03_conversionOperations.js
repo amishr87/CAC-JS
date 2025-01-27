@@ -25,3 +25,8 @@ console.log(boolIsLoggedIn)
 // "" => false
 // "abc" => true
 // "false" => true, as "false" is treated as a non-empty string
+
+// ************************** Operations ********************************
+
+let value = 3
+let negValue = -value
