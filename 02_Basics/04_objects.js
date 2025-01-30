@@ -87,3 +87,10 @@ console.log(Object.keys(tinderUser));
 console.log(typeof Object.keys(tinderUser));        //its an array
 console.log(Object.values(tinderUser));
 console.log(typeof Object.values(tinderUser));      //its an array
+console.log(Object.entries(tinderUser));
+console.log(typeof Object.entries(tinderUser));     //its an array
+console.log();
+
+//check if a user has a property(key) or not
+console.log(tinderUser.hasOwnProperty('isLoggerIn'));
+console.log(tinderUser.hasOwnProperty('isPresent'));
