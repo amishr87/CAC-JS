@@ -112,3 +112,16 @@ console.log(instruc);
 
 // API
 
+// JSON format
+// {
+//     "name": "Anand",
+//     "coursename": "Code in JS",
+//     "price": 1000
+// }
+
+// This data can also be in array format in JSON
+// [
+//     {},
+//     {},
+//     {}
+// ]
