@@ -94,3 +94,21 @@ console.log();
 //check if a user has a property(key) or not
 console.log(tinderUser.hasOwnProperty('isLoggerIn'));
 console.log(tinderUser.hasOwnProperty('isPresent'));
+console.log();
+
+//object de-structure
+const course = {
+    coursenaem: "Code in JS",
+    price: "$100",
+    instructor: "Hitesh"
+}
+
+const {instructor} = course
+console.log(instructor);
+
+//you can also remane the de-structured object
+const {instructor: instruc} = course
+console.log(instruc);
+
+// API
+
