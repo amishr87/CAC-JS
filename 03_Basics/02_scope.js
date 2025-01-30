@@ -30,3 +30,39 @@ if(true)
 }
 
 console.log("Outer Value of a: ", a);
+console.log();
+
+function one(){
+    const username = "Anand"
+
+    function two(){
+        const website = "youtube"
+        console.log(username);              // child func. can access the parent func.'s variables 
+    }
+
+    //console.log(website);                 // parent func. cannot access child func. variables
+    two()
+}
+
+one()
+console.log();
+
+if(true){
+    const username = "Anand"
+    if(username === "Anand")
+    {
+        const website = "youtube"
+        console.log(`${username} ${website}`);
+    }
+}
+
+
+//another way of using functions
+
+const addTwo = function(num){
+    return num+2
+}
+
+addTwo(5) 
+
+console.log(addTwo(5));
