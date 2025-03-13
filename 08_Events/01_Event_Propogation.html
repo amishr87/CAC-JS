@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #414141; color: #f0f8ff;">
+    <h2>Amazing image</h2>
+    <div >
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+        </ul>
+   </div>
+</body>
+<script>
+
+    //study about the following events
+    // type, timestamp, preventDefault
+    // target, toElement, srcElement, currentTarget,
+    // clientX, clientY, screenX, screenY
+    // altkey, ctrlkey, shiftkey, keyCode
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log(e);
+    // })
+
+    //  There are 2 ways of event propogation
+
+    //  1)  Event Bubbling (from inside out) // This is usually used in the industry
+    //  false parameter
+    document.getElementById('images').addEventListener('click', function(e){
+        console.log("Clicked inside the ul");
+    }, false)   //false is the default parameter for any event, you may or may not choose to write it
+
+    document.getElementById('owl').addEventListener('click', function(e){
+        console.log("Clicked Owl");
+        // e.stopPropogation(); //This will stop the event propogation and "Clicked inside the ul" will not be printed
+    }, false)   
+
+    //  Console Output:
+    //  Clicked Owl
+    //  Clicked inside the 
+
+
+    // //  2)  Event Capturing (from outside in)
+    // //  true parameter
+    // document.getElementById('images').addEventListener('click', function(e){
+    //     console.log("Clicked inside the ul");
+    // }, true)   
+
+    // document.getElementById('owl').addEventListener('click', function(e){
+    //     console.log("Clicked Owl");
+    // }, true)   
+
+    document.getElementById('google').addEventListener('click',function(e){
+        e.preventDefault();
+        e.stopPropagation()
+        console.log("google clicked");
+    }, false)
+
+    document.querySelector('#images').addEventListener('click', function(e){
+        console.log(e.target.tagName);
+        if (e.target.tagName === 'IMG') {
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode
+            removeIt.remove()
+        }
+    })
+
+    //  Another method to remove img
+    //removeIt.parentNode.removeChild(removeIt)
+
+</script>
+</html>
