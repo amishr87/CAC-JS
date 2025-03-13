@@ -40,24 +40,27 @@ buttons.forEach(function (button) {
 
 ```javascript
 const form = document.querySelector('form');
-// this usecase will give you empty
-// const height = parseInt(document.querySelector('#height').value)
 
 form.addEventListener('submit', function (e) {
-  e.preventDefault();
+  e.preventDefault(); //this is to stop the event from performing any default action if there is any. This is a precautionary method
 
-  const height = parseInt(document.querySelector('#height').value);
+  const height = parseInt(document.querySelector('#height').value); //this is to change the value of height from the string datatype to int datatype
   const weight = parseInt(document.querySelector('#weight').value);
   const results = document.querySelector('#results');
 
-  if (height === '' || height < 0 || isNaN(height)) {
-    results.innerHTML = `Please give a valid height ${height}`;
-  } else if (weight === '' || weight < 0 || isNaN(weight)) {
-    results.innerHTML = `Please give a valid weight ${weight}`;
+  if (
+    (height === '' || height <= 0 || isNaN(height)) &&
+    (weight === '' || weight <= 0 || isNaN(weight))
+  ) {
+    results.innerHTML = `Please enter a valid Height and Weight: ${height}, ${weight}`;
+  } else if (height === '' || height <= 0 || isNaN(height)) {
+    results.innerHTML = `Please enter a valid Height: ${height}`;
+  } else if (weight === '' || weight <= 0 || isNaN(weight)) {
+    results.innerHTML = `Please enter a valid Weight: ${weight}`;
   } else {
+    //dividing by 10000 since the height entered is in cm and not m, toFixed(2) is to limit the number of decimal digits to 2
     const bmi = (weight / ((height * height) / 10000)).toFixed(2);
-    //show the result
-    results.innerHTML = `<span>${bmi}</span>`;
+    results.innerHTML = `${bmi}`;
   }
 });
 
@@ -68,14 +71,16 @@ form.addEventListener('submit', function (e) {
 
 ```javascript
 const clock = document.getElementById('clock');
-// const clock = document.querySelector('#clock')
+//We could have used document.querySelector('#clock') as well
 
+//set interval is to keep running the method after the set time, in this case 1000 ms (1 sec)
 setInterval(function () {
   let date = new Date();
-  // console.log(date.toLocaleTimeString());
-  clock.innerHTML = date.toLocaleTimeString();
-}, 1000);
+  //console.log(date.toLocaleTimeString());
 
+  let currTime = date.toLocaleTimeString();
+  clock.innerHTML = `${currTime}`;
+}, 1000);
 
 ```
 
