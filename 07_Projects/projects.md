@@ -8,6 +8,7 @@
 ## Project 1
 
 ```javascript
+
 const buttons = document.querySelectorAll('.button');
 const body = document.querySelector('body');
 
@@ -38,6 +39,7 @@ buttons.forEach(function (button) {
 ## Project 2 Solution
 
 ```javascript
+
 const form = document.querySelector('form');
 
 form.addEventListener('submit', function (e) {
@@ -69,6 +71,7 @@ form.addEventListener('submit', function (e) {
 ## Project 3 Solution Code
 
 ```javascript
+
 const clock = document.getElementById('clock');
 //We could have used document.querySelector('#clock') as well
 
@@ -80,6 +83,7 @@ setInterval(function () {
   let currTime = date.toLocaleTimeString();
   clock.innerHTML = `${currTime}`;
 }, 1000);
+
 
 ```
 
@@ -186,8 +190,10 @@ function newGame() {
 # Project 5 Solution
 
 ```javascript
+
 const insert = document.getElementById('insert');
 
+//writing e.key would have been sufficient but this is to ensure if I press space bar, "space" in printer instead of a blank
 window.addEventListener('keydown', (e) => {
   insert.innerHTML = `
     <div class='color'>
@@ -198,9 +204,9 @@ window.addEventListener('keydown', (e) => {
       <th>Code</th>
     </tr>
     <tr>
-      <td>${e.key === ' ' ? 'Space' : e.key}</td>
+      <td>${e.key === ' ' ? 'Space' : e.key}</td>       
       <td>${e.keyCode}</td> 
-      <td>${e.code}</td>
+      <td>${e.code}</td>    
     </tr>
     
   </table>
@@ -246,7 +252,6 @@ const stopChangingColor = function () {
 
 document.querySelector('#start').addEventListener('click', startChangingColor);
 document.querySelector('#stop').addEventListener('click', stopChangingColor);
-
 
 
 ```
