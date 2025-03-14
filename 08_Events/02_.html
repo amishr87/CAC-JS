@@ -16,6 +16,7 @@
 
     const changeMe = setTimeout(changeText, 2000)
 
+    //If we press Stop button before 2000ms, thex change will not happen as we are using clearTimeout to stop the setTimeout function
     document.querySelector('#stop').addEventListener('click', function(){
         clearTimeout(changeMe)
         console.log("STOPPED")
