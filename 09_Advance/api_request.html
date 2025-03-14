@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="background-color: #212121; color: white;">
+    <h1>API Request</h1>
+    <p>Open the console to see the output</p>
+
+    <!--Homework-->
+    <h2>Card showcasing my Githut profile picture, name, and follows</h2>
+</body>
+<script>
+    const requestUrl = 'https://api.github.com/users/amishr87';
+    const request = new XMLHttpRequest();
+    request.open('GET', requestUrl)
+    request.onreadystatechange = function(){
+        console.log(request.readyState);
+        if (request.readyState === 4) {
+            const data = JSON.parse(this.responseText)
+            console.log(typeof data);
+            console.log(data.followers);
+        }
+    }
+    request.send();
+</script>
+</html>
